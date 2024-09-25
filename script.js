@@ -1,28 +1,24 @@
-const calculateSection = document.querySelector('.calculate_section');
-const evaluateInput = document.querySelector('.evaluate_section input');
+const buttonSection = document.querySelector(".ButtonSection")
+let evaluateSection = document.querySelector(".evaluateSection")
 
-calculateSection.addEventListener('click', (event) => {
+buttonSection.addEventListener("click",(e)=>{
     
-    if (event.target.tagName === "BUTTON") {
+    // If event type is button then it will be considered as input value
+    if(e.target.localName === "button"){
 
-        let showInInput = evaluateInput.value;
-
-        if(event.target.textContent.toLowerCase() === 'reset') {
-            showInInput = "";
+        if(e.target.innerText === "RESET"){
+            evaluateSection.value = ""
         }
-        else if(event.target.textContent.toLowerCase() === '=') {
-            const result = eval(showInInput)
-            showInInput = result;
+        else if (e.target.innerText === "DEL"){
+            evaluateSection.value = evaluateSection.value.slice(0,-1)    
         }
-        else if (event.target.textContent.toLowerCase() === 'del') {
-            showInInput = showInInput.slice(0, -1);
+        else if(e.target.innerText === "="){
+            evaluateSection.value = eval(evaluateSection.value)
         }
-        else {
-            showInInput += event.target.textContent;
+        else{  
+            evaluateSection.value += e.target.innerText
         }
-
-        evaluateInput.value = showInInput;
 
     }
 
-});
+})

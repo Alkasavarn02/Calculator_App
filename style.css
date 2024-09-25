@@ -1,102 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --bodycolor: #3B4664;
+    --evaluateSectionbgcolor:#181F32;
+    --whiteColor:#FFFFFF;
+    --buttonSectionbgcolor:#252D44;
+    --buttonbgColor:#EAE3DB;
+    --buttonTextColor:#3B4664;
+}
+
 * {
-    margin: 0;
-    padding: 0;
+    border: 0px;
+    margin: 0px;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-/* Utility Classes */
-
-/* flex layout */
-.d-flex {
+.d-flex{
     display: flex;
 }
-.justify-center {
-    justify-content: center;
+
+.borderandbgColor{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
-.align-center {
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bodycolor);
+    justify-content: center;
     align-items: center;
 }
 
-/* grid layout */
-.d-grid{
-    display: grid;
-}
-
-/*  */
-.border-none {
-    border: none;
-}
-.outline-none {
-    outline: none;
-}
-
-.main {
-    background-color: gray;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-}
-
-
-.evaluate_section {
-    width: 500px;
-    height: 80px;
-    font-weight: bold;
-}
-
-.evaluate_section input {
-    padding: 14px 23px;
-    text-align: end;
+.Calculator {
+    max-width: 536px;
     width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    background-color: #181F32;
-    color: #fff;
-    font-size: 30px;
+    height: 487px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.calculate_section {
-    flex-wrap: wrap;
-    margin-top: 23px;
-    width: 500px;
-    font-weight: bold;
-    padding: 23px;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 9px;
-    background-color: #252D44;
-    border-radius: 12px;
-}
-
-.scale-btn:active {
-    transform: translateY(4px);
-}
-
-.btn {
-    border-radius: 12px;
-    background-color: #EAE3DB;
-    color: #3B4664;
-    font-size: 23px;
+.Calculator > input {
+    height: 110px;
+    background-color: var(--evaluateSectionbgcolor);
+    color: var(--whiteColor);
+    font-family: Segoe UI;
+    font-size: 55px;
     font-weight: 600;
-    padding: 15px;
+    text-align: right;
 }
 
-.reset {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background-color: #647299;
-    color: #fff;
+.Calculator > .ButtonSection {
+    height: calc(100% - 110px);
+    background-color: var(--buttonSectionbgcolor);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 30px;
+    gap: 15px;
 }
-.del {
-    background-color: #647299;
-    color: #fff;
+
+.Calculator > .ButtonSection > button {
+    border-radius: 8px;
+    background-color: var(--buttonbgColor);
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border: none;
+    font-family: Inter;
+    font-size: 25px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--buttonTextColor);
 }
-.result {
-    grid-column-start: 3;
-    grid-column-end: 5;
-    background-color: #D13F30;
-    color: #fff;
+
+.Reset , .equalto {
+    grid-column: span 2;
 }
+
+.Calculator > .ButtonSection > .Reset , .Calculator > .ButtonSection > .del{
+    background-color:#647299;
+    color: var(--whiteColor);
+    font-size: 20px;
+}
+
+.Calculator > .ButtonSection > .equalto{
+    background-color:#D13F30;
+    color: var(--whiteColor);
+}
+
+
